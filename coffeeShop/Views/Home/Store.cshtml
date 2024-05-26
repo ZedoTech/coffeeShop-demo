@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<StoreDTO>
+@{
     ViewData["Title"] = "Store";
 }
 <section class="page-section cta">
@@ -11,7 +12,21 @@
                         <span class="section-heading-lower">We're Open</span>
                     </h2>
                     <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+
                         <li class="list-unstyled-item list-hours-item d-flex">
+                            Sunday
+                            <span class="ms-auto">Closed</span>
+                        </li>
+
+                        @foreach (var item in Model)
+                        {
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                @item.OpenDate
+                                <span class="ms-auto">@item.OpenTime</span>
+                            </li>
+                        }
+
+                        @* <li class="list-unstyled-item list-hours-item d-flex">
                             Sunday
                             <span class="ms-auto">Closed</span>
                         </li>
@@ -38,7 +53,7 @@
                         <li class="list-unstyled-item list-hours-item d-flex">
                             Saturday
                             <span class="ms-auto">9:00 AM to 5:00 PM</span>
-                        </li>
+                        </li> *@
                     </ul>
                     <p class="address mb-5">
                         <em>

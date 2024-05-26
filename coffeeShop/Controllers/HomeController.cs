@@ -1,5 +1,9 @@
+using coffeeShop.DBAccess;
 using coffeeShop.Models;
+using coffeeShop.Providers;
+using coffeeShop.Shared;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using System.Diagnostics;
 
 namespace coffeeShop.Controllers
@@ -30,7 +34,8 @@ namespace coffeeShop.Controllers
 
         public IActionResult Store()
         {
-            return View();
+            var list = DataProvider.GetStore();
+            return View(list);
         }
 
         public IActionResult Privacy()

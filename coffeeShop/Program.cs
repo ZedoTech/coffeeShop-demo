@@ -1,3 +1,5 @@
+using coffeeShop.Shared;
+
 namespace coffeeShop
 {
     public class Program
@@ -5,6 +7,8 @@ namespace coffeeShop
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            var configuration = builder.Configuration;
+            GlobalConst.DefaultConnection = configuration.GetConnectionString("DefaultConnection");
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
